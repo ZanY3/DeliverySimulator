@@ -18,7 +18,7 @@ MonoBehaviour:
   overrideFixedTimeStep: 1
   fixedTimeStep: 0.02
   maxAngularVelocity: 6
-  overrideBehavior: 1
+  overrideBehavior: 0
   behaviorTypes:
   - behaviorName: Simulator
     steeringHelper: 1
@@ -83,13 +83,13 @@ MonoBehaviour:
   - behaviorName: Drift
     steeringHelper: 1
     tractionHelper: 1
-    ABS: 0
-    ESP: 0
-    TCS: 0
+    ABS: 1
+    ESP: 1
+    TCS: 1
     applyExternalWheelFrictions: 1
     applyRelativeTorque: 1
-    highSpeedSteerAngleMinimum: 40
-    highSpeedSteerAngleMaximum: 60
+    highSpeedSteerAngleMinimum: 45
+    highSpeedSteerAngleMaximum: 62
     highSpeedSteerAngleAtspeedMinimum: 100
     highSpeedSteerAngleAtspeedMaximum: 200
     steerHelperAngularVelStrengthMinimum: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
     antiRollFrontHorizontalMinimum: 1000
     antiRollRearHorizontalMinimum: 1000
     gearShiftingDelayMaximum: 0.015
-    angularDrag: 0
+    angularDrag: 0.1
     forwardExtremumSlip: 0.2
     forwardExtremumValue: 1
     forwardAsymptoteSlip: 0.8

@@ -807,7 +807,7 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Android: BCG_RCC
-    Standalone: BCG_RCC
+    Standalone: BCG_RCC;EASYROADS3D_PRO
     WebGL: BCG_RCC
     iPhone: BCG_RCC
   additionalCompilerArguments: {}
