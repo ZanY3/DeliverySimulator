@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - OrderTakeZone
+  - OrderEndZone
+  - CameraMain
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MiniMapBlocking
   - Water
   - UI
   - 

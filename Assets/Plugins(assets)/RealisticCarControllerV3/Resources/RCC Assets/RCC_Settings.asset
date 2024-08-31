@@ -177,16 +177,16 @@ MonoBehaviour:
   horizontalInput: Horizontal
   mouseXInput: Mouse X
   mouseYInput: Mouse Y
-  handbrakeKB: 32
+  handbrakeKB: 304
   startEngineKB: 105
   lowBeamHeadlightsKB: 108
   highBeamHeadlightsKB: 107
   rightIndicatorKB: 101
   leftIndicatorKB: 113
   hazardIndicatorKB: 122
-  shiftGearUp: 304
-  shiftGearDown: 306
-  NGear: 110
+  shiftGearUp: 0
+  shiftGearDown: 0
+  NGear: 0
   boostKB: 102
   slowMotionKB: 103
   changeCameraKB: 99
@@ -283,7 +283,7 @@ MonoBehaviour:
   maxBrakeSoundVolume: 0.1
   foldGeneralSettings: 0
   foldBehaviorSettings: 1
-  foldControllerSettings: 0
+  foldControllerSettings: 1
   foldUISettings: 0
   foldWheelPhysics: 0
   foldSFX: 0
