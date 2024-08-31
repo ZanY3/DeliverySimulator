@@ -1,24 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TakeOrder : MonoBehaviour
 {
     public GameObject[] orderPlaces;
-    
-    private bool takedOrder = false;
+    public TMP_Text clueText;
+    public AudioClip orderTakedSound;
+    public GameObject restaurnatGreenZone;
+
+    public static bool takedOrder = false;
+
+    private AudioSource source;
     private bool usable = false;
 
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
-    private void Update()
+    private async void Update()
     {
         if(usable && !takedOrder && Input.GetKeyDown(KeyCode.E))
         {
+            usable = false;
+            restaurnatGreenZone.SetActive(false);
+            source.PlayOneShot(orderTakedSound);
             takedOrder = true;
             var randPlace = Random.Range(0, orderPlaces.Length);
             orderPlaces[randPlace].GetComponent<OrderPlace>().TakeOrder();
-            
-            Debug.Log("Taked order!");
+
+            clueText.gameObject.SetActive(true);
+            await new WaitForSeconds(2);
+            clueText.gameObject.SetActive(false);
         }
     }
 

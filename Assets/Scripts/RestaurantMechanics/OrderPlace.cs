@@ -6,16 +6,19 @@ using UnityEngine;
 public class OrderPlace : MonoBehaviour
 {
     public GameObject marks;
+    public TMP_Text endOrderText;
 
-    //public int minMoneyForOrder;
-    //public int maxMoneyForOrder; 
+    public int minMoneyForOrder;
+    public int maxMoneyForOrder;
 
-    private bool takedOrder = false;
-    private Transform plTransform;
+    private int moneyForOrder;
+
+    public bool takedOrder = false;
+    private MoneyManager moneyManager;
 
     private void Start()
     {
-        plTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        moneyManager = FindAnyObjectByType<MoneyManager>();
     }
 
     public void TakeOrder()
@@ -25,6 +28,15 @@ public class OrderPlace : MonoBehaviour
     }
     public void EndOrder()
     {
+        if(takedOrder)
+        {
 
+            moneyForOrder = Random.Range(minMoneyForOrder, maxMoneyForOrder);
+            endOrderText.text = "+" + moneyForOrder.ToString() + "$";
+            endOrderText.gameObject.SetActive(true);
+            takedOrder = false;
+            marks.SetActive(false);
+            moneyManager.MoneyPlus(moneyForOrder);
+        }
     }    
 }
