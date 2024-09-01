@@ -13,29 +13,29 @@ public class OrderPlace : MonoBehaviour
 
     private int moneyForOrder;
 
+    private GameObject restaurantGreenZone;
     public bool takedOrder = false;
     private MoneyManager moneyManager;
 
     private void Start()
     {
+        restaurantGreenZone = GameObject.FindGameObjectWithTag("OrderTakeZone");
         moneyManager = FindAnyObjectByType<MoneyManager>();
     }
 
     public void TakeOrder()
     {
+        restaurantGreenZone.SetActive(false);
         takedOrder = true;
         marks.SetActive(true);
     }
     public void EndOrder()
     {
-        if(takedOrder)
-        {
-            moneyForOrder = Random.Range(minMoneyForOrder, maxMoneyForOrder);
-            endOrderText.text = "+" + moneyForOrder.ToString() + "$";
-            endOrderText.gameObject.SetActive(true);
-            takedOrder = false;
-            marks.SetActive(false);
-            moneyManager.MoneyPlus(moneyForOrder);
-        }
+        takedOrder = false;
+        moneyForOrder = Random.Range(minMoneyForOrder, maxMoneyForOrder);
+        endOrderText.text = "+" + moneyForOrder.ToString() + "$";
+        moneyManager.MoneyPlus(moneyForOrder);
+        endOrderText.gameObject.SetActive(true);
+        marks.SetActive(false);
     }    
 }

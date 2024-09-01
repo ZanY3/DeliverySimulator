@@ -10,7 +10,7 @@ public class TakeOrder : MonoBehaviour
     public AudioClip orderTakedSound;
     public GameObject restaurnatGreenZone;
 
-    public static bool takedOrder = false;
+    public bool takedOrder = false;
 
     private AudioSource source;
     private bool usable = false;
@@ -24,10 +24,10 @@ public class TakeOrder : MonoBehaviour
     {
         if(usable && !takedOrder && Input.GetKeyDown(KeyCode.E))
         {
-            usable = false;
             restaurnatGreenZone.SetActive(false);
-            source.PlayOneShot(orderTakedSound);
             takedOrder = true;
+            usable = false;
+            source.PlayOneShot(orderTakedSound);
             var randPlace = Random.Range(0, orderPlaces.Length);
             orderPlaces[randPlace].GetComponent<OrderPlace>().TakeOrder();
 

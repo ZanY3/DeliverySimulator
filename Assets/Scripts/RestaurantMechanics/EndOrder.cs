@@ -10,24 +10,28 @@ public class EndOrder : MonoBehaviour
     public AudioClip endOrderSound;
 
 
+    private TakeOrder takeOrder;
     private AudioSource source;
     private bool usable = false;
     private OrderPlace orderPlace;
 
     private void Start()
     {
+        takeOrder = FindAnyObjectByType<TakeOrder>();
         source = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if(usable && TakeOrder.takedOrder && Input.GetKeyDown(KeyCode.E))
+        if(usable && takeOrder.takedOrder && Input.GetKeyDown(KeyCode.E))
         {
+            if(orderPlace.takedOrder)
+                orderPlace.EndOrder();
+
+            takeOrder.takedOrder = false;
             source.PlayOneShot(endOrderSound);
             restaurnatGreenZone.SetActive(true);
 
-            orderPlace.EndOrder();
-            TakeOrder.takedOrder = false;
         }
     }
 
