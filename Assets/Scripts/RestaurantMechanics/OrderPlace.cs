@@ -30,7 +30,6 @@ public class OrderPlace : MonoBehaviour
     {
         if(takedOrder)
         {
-
             moneyForOrder = Random.Range(minMoneyForOrder, maxMoneyForOrder);
             endOrderText.text = "+" + moneyForOrder.ToString() + "$";
             endOrderText.gameObject.SetActive(true);
