@@ -10220,6 +10220,7 @@ MonoBehaviour:
   clueText: {fileID: 1346943436}
   orderTakedSound: {fileID: 8300000, guid: ce989adf04c00b849aef770fe9f0e9ac, type: 3}
   restaurnatGreenZone: {fileID: 1893378023}
+  takedOrder: 0
 --- !u!114 &1943877199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10234,6 +10235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restaurnatGreenZone: {fileID: 1893378023}
   endOrderSound: {fileID: 8300000, guid: 61ebb6f0325cbf34494d87cae87be7dd, type: 3}
+  clueText: {fileID: 402166533}
 --- !u!82 &1943877200
 AudioSource:
   m_ObjectHideFlags: 0

@@ -22,13 +22,14 @@ public class TakeOrder : MonoBehaviour
 
     private async void Update()
     {
-        if(usable && !takedOrder && Input.GetKeyDown(KeyCode.E))
+        if (usable && !takedOrder && Input.GetKeyDown(KeyCode.E))
         {
             restaurnatGreenZone.SetActive(false);
             takedOrder = true;
             usable = false;
             source.PlayOneShot(orderTakedSound);
-            var randPlace = Random.Range(0, orderPlaces.Length);
+
+            int randPlace = Random.Range(0, orderPlaces.Length);
             orderPlaces[randPlace].GetComponent<OrderPlace>().TakeOrder();
 
             clueText.gameObject.SetActive(true);
@@ -39,14 +40,15 @@ public class TakeOrder : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        if(collision.gameObject.CompareTag("OrderTakeZone"))
+        if (collision.gameObject.CompareTag("OrderTakeZone"))
         {
             usable = true;
         }
     }
+
     private void OnTriggerExit(Collider collision)
     {
-        if(collision.gameObject.CompareTag("OrderTakeZone"))
+        if (collision.gameObject.CompareTag("OrderTakeZone"))
         {
             usable = false;
         }

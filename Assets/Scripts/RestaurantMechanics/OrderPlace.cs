@@ -12,7 +12,6 @@ public class OrderPlace : MonoBehaviour
     public int maxMoneyForOrder;
 
     private int moneyForOrder;
-
     private GameObject restaurantGreenZone;
     public bool takedOrder = false;
     private MoneyManager moneyManager;
@@ -29,6 +28,7 @@ public class OrderPlace : MonoBehaviour
         takedOrder = true;
         marks.SetActive(true);
     }
+
     public void EndOrder()
     {
         takedOrder = false;
@@ -37,5 +37,5 @@ public class OrderPlace : MonoBehaviour
         moneyManager.MoneyPlus(moneyForOrder);
         endOrderText.gameObject.SetActive(true);
         marks.SetActive(false);
-    }    
+    }
 }

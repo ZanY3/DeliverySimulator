@@ -6,9 +6,8 @@ using UnityEngine;
 public class EndOrder : MonoBehaviour
 {
     public GameObject restaurnatGreenZone;
-
     public AudioClip endOrderSound;
-
+    public GameObject clueText;
 
     private TakeOrder takeOrder;
     private AudioSource source;
@@ -21,28 +20,32 @@ public class EndOrder : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    private void Update()
+    private async void Update()
     {
-        if(usable && takeOrder.takedOrder && Input.GetKeyDown(KeyCode.E))
+        if (usable && takeOrder.takedOrder && Input.GetKeyDown(KeyCode.E))
         {
-            if(orderPlace.takedOrder)
+            if (orderPlace != null && orderPlace.takedOrder)
+            {
                 orderPlace.EndOrder();
+                takeOrder.takedOrder = false; // —брасываем состо€ние заказа
+                source.PlayOneShot(endOrderSound);
+                restaurnatGreenZone.SetActive(true);
+                await new WaitForSeconds(2);
+                clueText.gameObject.SetActive(false);
 
-            takeOrder.takedOrder = false;
-            source.PlayOneShot(endOrderSound);
-            restaurnatGreenZone.SetActive(true);
-
+            }
         }
     }
 
     private void OnTriggerStay(Collider collision)
     {
-        if(collision.gameObject.CompareTag("OrderEndZone"))
+        if (collision.gameObject.CompareTag("OrderEndZone"))
         {
             orderPlace = collision.transform.GetComponentInParent<OrderPlace>();
             usable = true;
         }
     }
+
     private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("OrderEndZone"))
