@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4642814448172663945}
   m_Layer: 0
   m_Name: terraced1c
-  m_TagString: Untagged
+  m_TagString: FineObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marks: {fileID: 725830593176976346}
+  endOrderText: {fileID: 0}
+  minMoneyForOrder: 0
+  maxMoneyForOrder: 0
+  takedOrder: 0
 --- !u!1 &725830593176976346
 GameObject:
   m_ObjectHideFlags: 0

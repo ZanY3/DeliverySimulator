@@ -7,7 +7,7 @@ public class MoneyManager : MonoBehaviour
 {
     public TMP_Text moneyText;
 
-    private int money = 0;
+    public int money = 0;
 
     private void Start()
     {
@@ -20,6 +20,13 @@ public class MoneyManager : MonoBehaviour
         moneyText.text = money.ToString();
         Save();
     }    
+    public void GetFine(int count)
+    {
+        money -= count;
+        moneyText.text = money.ToString();
+        Save();
+    }
+
     public void Save()
     {
         PlayerPrefs.SetInt("MoneyCount", money);
