@@ -16,6 +16,8 @@ public class FineSystem : MonoBehaviour
     public int smallFinePrice;
     public int mediumFinePrice;
     public int largeFinePrice;
+    [Space]
+    public int zoneFinePrice;
 
     private MoneyManager moneyManager;
     private Rigidbody rb;
@@ -33,11 +35,18 @@ public class FineSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FineObj") && canGetFine && moneyManager.money >= smallFinePrice)
         {
-            ApplyFineAsync();
+            ApplyDestroyFine();
         }
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.CompareTag("FineObj") && moneyManager.money >= zoneFinePrice)
+        {
+            ApplyZoneFine();
+        }    
+    }
 
-    private async void ApplyFineAsync()
+    private async void ApplyDestroyFine()
     {
         float speed = rb.velocity.magnitude;
 
@@ -69,6 +78,20 @@ public class FineSystem : MonoBehaviour
         fineClueText.gameObject.SetActive(false);
     }
 
+    private async void ApplyZoneFine()
+    {
+
+        fineClueText.text = "¬ы заплатили " + zoneFinePrice.ToString() + "$ за проезд по запрещенной зоне!";
+        fineClueText.gameObject.SetActive(true);
+        source.PlayOneShot(fineSound);
+        moneyManager.GetFine(zoneFinePrice);
+
+        canGetFine = false;
+
+        await new WaitForSeconds(2);
+
+        fineClueText.gameObject.SetActive(false);
+    }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("FineObj"))
@@ -76,5 +99,6 @@ public class FineSystem : MonoBehaviour
             canGetFine = true;
         }
     }
+
 }
 
