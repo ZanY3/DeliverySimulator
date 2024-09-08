@@ -9,6 +9,7 @@ TagManager:
   - CameraMain
   - EndOrderText
   - FineObj
+  - CarChoiseZone
   layers:
   - Default
   - TransparentFX
