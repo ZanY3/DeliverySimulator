@@ -18,6 +18,7 @@ public class FineSystem : MonoBehaviour
     public int largeFinePrice;
     [Space]
     public int zoneFinePrice;
+    public int carFinePrice;
 
     private MoneyManager moneyManager;
     private Rigidbody rb;
@@ -33,9 +34,16 @@ public class FineSystem : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FineObj") && canGetFine && moneyManager.money >= smallFinePrice)
+        if (collision.gameObject.CompareTag("FineObj") && canGetFine)
         {
-            ApplyDestroyFine();
+            if (collision.gameObject.name.Contains("car") && moneyManager.money >= carFinePrice)
+            {
+                ApplyCarFine();
+            }
+            else if(!collision.gameObject.name.Contains("car"))
+            {
+                ApplyDestroyFine();
+            }
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -43,6 +51,7 @@ public class FineSystem : MonoBehaviour
         if(collision.gameObject.CompareTag("FineObj") && moneyManager.money >= zoneFinePrice)
         {
             ApplyZoneFine();
+
         }    
     }
 
@@ -50,21 +59,21 @@ public class FineSystem : MonoBehaviour
     {
         float speed = rb.velocity.magnitude;
 
-        if (speed >= largeFineSpeed)
+        if (speed >= largeFineSpeed && moneyManager.money >= largeFinePrice)
         {
             fineClueText.text = "Вы заплатили " + largeFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
             source.PlayOneShot(fineSound);
             moneyManager.GetFine(largeFinePrice);
         }
-        else if (speed >= mediumFineSpeed)
+        else if (speed >= mediumFineSpeed && moneyManager.money >= mediumFinePrice)
         {
             fineClueText.text = "Вы заплатили " + mediumFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
             source.PlayOneShot(fineSound);
             moneyManager.GetFine(mediumFinePrice);
         }
-        else if (speed >= smallFineSpeed)
+        else if (speed >= smallFineSpeed && moneyManager.money >= smallFinePrice)
         {
             fineClueText.text = "Вы заплатили " + smallFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
@@ -92,6 +101,21 @@ public class FineSystem : MonoBehaviour
 
         fineClueText.gameObject.SetActive(false);
     }
+
+    private async void ApplyCarFine()
+    {
+        fineClueText.text = "Вы заплатили " + carFinePrice.ToString() + "$ за повреждение чужой машины";
+        fineClueText.gameObject.SetActive(true);
+        source.PlayOneShot(fineSound);
+        moneyManager.GetFine(carFinePrice);
+
+        canGetFine = false;
+
+        await new WaitForSeconds(2);
+
+        fineClueText.gameObject.SetActive(false);
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("FineObj"))
