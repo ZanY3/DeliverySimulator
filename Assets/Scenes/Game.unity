@@ -4286,10 +4286,10 @@ RectTransform:
   - {fileID: 1716640110}
   m_Father: {fileID: 85852679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -125}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411955795
 MonoBehaviour:
@@ -5404,7 +5404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &505386242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11622,10 +11622,10 @@ RectTransform:
   - {fileID: 952138072}
   m_Father: {fileID: 85852679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 405, y: -125}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141397933
 MonoBehaviour:
@@ -12948,7 +12948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1323022421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18630,9 +18630,10 @@ GameObject:
   - component: {fileID: 1813107544}
   - component: {fileID: 1813107543}
   - component: {fileID: 1813107542}
+  - component: {fileID: 1813107545}
   m_Layer: 0
   m_Name: CarChoiseZone
-  m_TagString: CarChoiseZone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18723,6 +18724,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813107540}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1813107545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813107540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbdeed81db81c7040911f00ca9141d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 505386241}
+  salonUI: {fileID: 1323022420}
+  player: {fileID: 1943877193}
+  plCamera: {fileID: 1386031462}
 --- !u!1001 &1819428811
 PrefabInstance:
   m_ObjectHideFlags: 0
