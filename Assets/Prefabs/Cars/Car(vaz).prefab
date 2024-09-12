@@ -10814,8 +10814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4393529331766150856}
   - component: {fileID: 8337265743382046134}
-  - component: {fileID: 3504422629662915039}
-  - component: {fileID: 4448842411301266221}
   - component: {fileID: 207269082219373731}
   m_Layer: 0
   m_Name: Collider
@@ -10860,47 +10858,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 5}
   m_Center: {x: 0, y: 0.07, z: 0}
---- !u!65 &3504422629662915039
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8297687109423446428}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 5}
-  m_Center: {x: 0, y: 0.07, z: 0}
---- !u!114 &4448842411301266221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8297687109423446428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0c91f4ccd1c0e54e8f3e9715908c554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fineClueText: {fileID: 0}
-  fineSound: {fileID: 8300000, guid: 436c7e4fcf310814daf355aad51ae94c, type: 3}
-  smallFineSpeed: 10
-  mediumFineSpeed: 30
-  largeFineSpeed: 50
-  smallFinePrice: 50
-  mediumFinePrice: 100
-  largeFinePrice: 200
 --- !u!82 &207269082219373731
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11045,6 +11002,8 @@ GameObject:
   - component: {fileID: 6598506807449639045}
   - component: {fileID: 6163909785454723049}
   - component: {fileID: 2737328923378063945}
+  - component: {fileID: 6825207929266544436}
+  - component: {fileID: 6110861500241173307}
   - component: {fileID: 2164967134630616188}
   m_Layer: 0
   m_Name: Car(vaz)
@@ -11749,6 +11708,49 @@ MonoBehaviour:
   restaurnatGreenZone: {fileID: 0}
   endOrderSound: {fileID: 8300000, guid: 61ebb6f0325cbf34494d87cae87be7dd, type: 3}
   clueText: {fileID: 0}
+--- !u!114 &6825207929266544436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010196289035050627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c91f4ccd1c0e54e8f3e9715908c554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fineClueText: {fileID: 0}
+  fineSound: {fileID: 8300000, guid: 436c7e4fcf310814daf355aad51ae94c, type: 3}
+  smallFineSpeed: 2
+  mediumFineSpeed: 6
+  largeFineSpeed: 10
+  smallFinePrice: 50
+  mediumFinePrice: 70
+  largeFinePrice: 100
+  zoneFinePrice: 60
+  carFinePrice: 120
+--- !u!65 &6110861500241173307
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010196289035050627}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1, z: 5}
+  m_Center: {x: 0, y: 0.07, z: 0}
 --- !u!82 &2164967134630616188
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11761,7 +11763,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

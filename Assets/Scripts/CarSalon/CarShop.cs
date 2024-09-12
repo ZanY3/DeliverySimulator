@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarShop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SelectCar(int index)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene(index);
     }
 }
