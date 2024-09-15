@@ -64,21 +64,21 @@ public class FineSystem : MonoBehaviour
             fineClueText.text = "Вы заплатили " + largeFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
             source.PlayOneShot(fineSound);
-            moneyManager.GetFine(largeFinePrice);
+            moneyManager.MoneyMinus(largeFinePrice);
         }
         else if (speed >= mediumFineSpeed && moneyManager.money >= mediumFinePrice)
         {
             fineClueText.text = "Вы заплатили " + mediumFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
             source.PlayOneShot(fineSound);
-            moneyManager.GetFine(mediumFinePrice);
+            moneyManager.MoneyMinus(mediumFinePrice);
         }
         else if (speed >= smallFineSpeed && moneyManager.money >= smallFinePrice)
         {
             fineClueText.text = "Вы заплатили " + smallFinePrice.ToString() + "$ за столкновение!";
             fineClueText.gameObject.SetActive(true);
             source.PlayOneShot(fineSound);
-            moneyManager.GetFine(smallFinePrice);
+            moneyManager.MoneyMinus(smallFinePrice);
         }
         canGetFine = false;
 
@@ -93,7 +93,7 @@ public class FineSystem : MonoBehaviour
         fineClueText.text = "Вы заплатили " + zoneFinePrice.ToString() + "$ за проезд по запрещенной зоне!";
         fineClueText.gameObject.SetActive(true);
         source.PlayOneShot(fineSound);
-        moneyManager.GetFine(zoneFinePrice);
+        moneyManager.MoneyMinus(zoneFinePrice);
 
         canGetFine = false;
 
@@ -107,7 +107,7 @@ public class FineSystem : MonoBehaviour
         fineClueText.text = "Вы заплатили " + carFinePrice.ToString() + "$ за повреждение чужой машины";
         fineClueText.gameObject.SetActive(true);
         source.PlayOneShot(fineSound);
-        moneyManager.GetFine(carFinePrice);
+        moneyManager.MoneyMinus(carFinePrice);
 
         canGetFine = false;
 

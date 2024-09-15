@@ -20,7 +20,7 @@ public class MoneyManager : MonoBehaviour
         moneyText.text = money.ToString();
         Save();
     }    
-    public void GetFine(int count)
+    public void MoneyMinus(int count)
     {
         money -= count;
         moneyText.text = money.ToString();
